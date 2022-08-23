@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Map Viewer - surf_verge</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/base64-string.min.js"></script>
+        <script src="https://raw.githubusercontent.com/RSCSurf/SurfMaps8/main/js/facepunch.webgame.js?v=204e-82ab"></script>
+        <script src="https://raw.githubusercontent.com/RSCSurf/SurfMaps8/main/js/sourceutils.js?v=204e-82ab"></script>
+        <link type="text/css" rel="stylesheet" href="https://raw.githubusercontent.com/RSCSurf/SurfMaps8/main/styles/mapviewer.css?v=204e-82ab" />
+        <style>
+            #map-view {
+                position: absolute;
+                top: 72px;
+                left: 32px;
+                right: 32px;
+                bottom: 32px;
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+    <h2>Source Map Viewer Demo - surf_verge</h2>
+    <div id="map-view">
+        <script>
+            var viewer;
+            window.onload = function() {
+                viewer = new SourceUtils.MapViewer(document.getElementById("map-view"));
+                viewer.cameraMode = SourceUtils.CameraMode.FreeCam;
+                viewer.showDebugPanel = true;
+                viewer.saveCameraPosInHash = true;
+                viewer.loadMap("https://raw.githubusercontent.com/RSCSurf/SurfMaps8/main/maps/surf_verge/index.json?v=204e-82ab");
+                viewer.animate();
+            }
+        </script>
+    </div>
+    </body>
+</html>
